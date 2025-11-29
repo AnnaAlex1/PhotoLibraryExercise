@@ -1,8 +1,16 @@
 <mat-toolbar>
 
-    <button mat-button>All items</button>
+    <button mat-button 
+        [matButton]="isActive('/') ? 'filled' : 'text'"
+        routerLink="/"
+        routerLinkActive="active">
+        All items
+    </button>
 
-    <button mat-button>
+    <button mat-button 
+        [matButton]="isActive('/favorites') ?  'filled' : 'text'"
+        routerLink="/favorites"
+        routerLinkActive="active">
         Favourites 
         <mat-icon>star</mat-icon>
     </button>
