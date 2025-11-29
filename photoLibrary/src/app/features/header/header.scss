@@ -1,0 +1,14 @@
+mat-toolbar {
+
+  background: var(--mat-sys-primary-container);
+  color: var(--mat-sys-on-primary-container);
+
+  justify-content: center;
+  align-items: center;
+
+  gap: 2rem;
+}
+
+button {
+    font: var(--mat-sys-body-large);
+}
