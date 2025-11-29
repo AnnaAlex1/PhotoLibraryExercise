@@ -1,0 +1,14 @@
+<mat-grid-list  cols="3" rowHeight="1:1">
+
+    @for (photo of photoArray; track photo.id) {
+        <mat-grid-tile>
+            <img src="{{ photo.url }}" alt="">
+        </mat-grid-tile>
+        
+    }
+
+</mat-grid-list>
+
+
+
+
