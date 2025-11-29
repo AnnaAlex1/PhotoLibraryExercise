@@ -40,7 +40,9 @@ describe('PhotoGrid', () => {
     spyOn(component.photoClicked, 'emit');
 
     const photo = fixture.debugElement.queryAll(By.css('mat-grid-tile'))[0];
-    photo.triggerEventHandler('çlick', null);
+    photo.triggerEventHandler('click', null);
+
+    expect(component.photoClicked.emit).toHaveBeenCalledWith(mock_photos[0]);
   })
 
 });
