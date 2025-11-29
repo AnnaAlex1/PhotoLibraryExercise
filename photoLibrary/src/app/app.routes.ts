@@ -1,11 +1,20 @@
 import { Routes } from '@angular/router';
-import { PhotosPage } from './features/photos-page/photos-page';
-import { FavoritesPage } from './features/favorites-page/favorites-page';
-import { PhotoDetail } from './features/photo-detail/photo-detail';
 
 export const routes: Routes = [
-    {   path: '',  component: PhotosPage   },
-    {   path: 'favorites', component: FavoritesPage    },
-    {   path: 'photo/:id', component: PhotoDetail    },
-    {   path: '**', redirectTo: ''   }
+    {   
+        path: '',  
+        loadComponent: () => import('./features/photos-page/photos-page').then(m => m.PhotosPage)
+    },
+    {   
+        path: 'favorites', 
+        loadComponent: () => import('./features/favorites-page/favorites-page').then(m => m.FavoritesPage)    
+    },
+    {   
+        path: 'photo/:id', 
+        loadComponent: () => import('./features/photo-detail/photo-detail').then(m => m.PhotoDetail)
+        },
+    {   
+        path: '**', 
+        redirectTo: ''   
+    }
 ];
