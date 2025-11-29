@@ -1,14 +1,22 @@
-<mat-grid-list  cols="3" rowHeight="1:1">
+<mat-grid-list cols="3" rowHeight="2:3" gutterSize="40px">
 
-    @for (photo of photoArray; track photo.id) {
-        <mat-grid-tile (click)="onPhotoClick(photo)">
-            <img src="{{ photo.url }}" alt="">
-        </mat-grid-tile>
-        
-    }
+ <!-- for every image -->
+  @for (photo of photoArray; track photo.id) {
+    <mat-grid-tile (click)="onPhotoClick(photo)">
+      
+        <mat-card class="photo-card" matRipple>
+
+            <div class="photo-wrapper">
+                <img
+                    [src]="photo.url"
+                    alt="Photo"
+                    loading="lazy"
+                />
+            </div>
+
+      </mat-card>
+
+    </mat-grid-tile>
+  }
 
 </mat-grid-list>
-
-
-
-

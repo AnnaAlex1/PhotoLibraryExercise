@@ -1,0 +1,64 @@
+mat-grid-list {
+  width: 88%;
+  margin: 0 auto;
+}
+
+mat-grid-tile {
+  cursor: pointer;
+  border-radius: 16px;
+}
+
+/* Angular Material Card styling */
+.photo-card {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  padding: 0;
+  display: block;
+  background: var(--mat-sys-surface-container, #121212);
+  transition:
+    transform 150ms ease,
+    box-shadow 150ms ease,
+    filter 150ms ease;
+  transform-origin: center;
+
+}
+
+// hover -> focus
+.mat-grid-tile:hover,
+.mat-grid-tile:focus-within {
+  transform: scale(1.01);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.28);
+}
+
+
+/* 2:3 (200x300) aspect ratio: height = 1.5 * width -> 150% */
+.photo-wrapper {
+  position: relative;
+  width: 100%;
+  padding-top: 150%; // 300 / 200 * 100
+}
+
+
+.photo-wrapper img {
+  position: absolute;
+  inset: 0;
+  width: 94%;
+  height: 91%;
+  margin: 2% auto;
+  display: block;
+  border-radius: 16px;
+}
+
+
+
+@media (max-width: 599px) {
+  :host {
+    padding: 8px;
+  }
+  .photo-card {
+    border-radius: 12px;
+  }
+}
+
+
