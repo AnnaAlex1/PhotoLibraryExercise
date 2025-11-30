@@ -1,4 +1,4 @@
-import { computed, Injectable, signal } from '@angular/core';
+import { computed, effect, Injectable, signal } from '@angular/core';
 import { Photo } from '../../shared/models/photo.model';
 
 @Injectable({
@@ -6,9 +6,22 @@ import { Photo } from '../../shared/models/photo.model';
 })
 export class FavoritePhotosService {
 
-  private readonly _favorites = signal<Photo[]>([]); // private
+  private readonly STORAGE_KEY = 'favorites';
 
+  private readonly _favorites = signal<Photo[]>(this.loadFromStorage()); // private
   readonly favorites = computed( () => this._favorites()); // publicly accessible
+
+  constructor() {
+    effect(() => {
+      const current = this._favorites();
+      try {
+        localStorage.setItem(this.STORAGE_KEY, JSON.stringify(current));
+      } catch {
+        // ignore storage errors
+      }
+    });
+  }
+
 
 
   isFavorite(id: string): boolean {  // return true if exists, false otherwise
@@ -33,6 +46,24 @@ export class FavoritePhotosService {
   }
 
 
+
+
+  // storage appproach
+  private loadFromStorage(): Photo[] {
+    try {
+      const storageContent = localStorage.getItem(this.STORAGE_KEY);
+      if (!storageContent) return [];
+
+      const parsed = JSON.parse(storageContent) as Photo[];
+
+      if (!Array.isArray(parsed)) return [];
+        
+      return parsed;
+
+    } catch {
+      return [];
+    }
+  }
   
 
 }

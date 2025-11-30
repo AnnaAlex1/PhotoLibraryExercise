@@ -36,6 +36,6 @@ describe('FavoritesPage', () => {
 
     component.onPhotoClicked(photo);
 
-    expect(routerSpy.navigate).toHaveBeenCalledWith(['/photos', '1']);
+    expect(routerSpy.navigate).toHaveBeenCalledWith(['/photo', '1']);
   });
 });
