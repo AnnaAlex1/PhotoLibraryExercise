@@ -56,10 +56,10 @@ describe('FavoritePhotos', () => {
 
 
 
-  it('decideAddorRemove should add when not favorite', () => {
-    service.decideAddorRemove(photo1);
+  it('decideAddOrRemove should add when not favorite', () => {
+    service.decideToAddOrRemove(photo1);
 
-    const favorites = service.favorites;
+    const favorites = service.favorites();
     expect(favorites.length).toBe(1);
     expect(service.isFavorite(photo1.id)).toBeTrue();
   
@@ -68,7 +68,7 @@ describe('FavoritePhotos', () => {
   it('decideAddorRemove should remove when already favorite', () => {
     service.addToFavorites(photo1);
 
-    service.decideAddorRemove(photo1);
+    service.decideToAddOrRemove(photo1);
 
     const favorites = service.favorites;
     expect(favorites.length).toBe(0);

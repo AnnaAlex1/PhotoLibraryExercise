@@ -21,14 +21,14 @@ export class FavoritePhotosService {
   }
 
   removeFromFavorites(id: string): void {
-    this._favorites.update( list => list.filter(ph => ph.id === id));
+    this._favorites.update( list => list.filter(ph => ph.id !== id));
   }
 
-  decideAddorRemove(photo: Photo): void {
+  decideToAddOrRemove(photo: Photo): void {
     if (this.isFavorite(photo.id)){
       this.removeFromFavorites(photo.id);
     } else {
-      this.addToFavorites(photo);
+      this.addToFavorites(photo)
     }
   }
 
