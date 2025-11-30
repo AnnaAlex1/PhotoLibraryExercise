@@ -1,5 +1,8 @@
 @if ( favorites.length == 0) {
-    <p>No pictures in favorites!</p>
+    <div class="no-fav-container">
+        <p class="no-fav-message">No pictures in favorites!</p>
+    </div>
+    
 } @else {
     <app-photo-grid [photoArray]="favorites" ></app-photo-grid>
 }

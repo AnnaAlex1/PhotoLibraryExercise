@@ -28,7 +28,7 @@ export class FavoritePhotosService {
     if (this.isFavorite(photo.id)){
       this.removeFromFavorites(photo.id);
     } else {
-      this.addToFavorites(photo)
+      this.addToFavorites(photo);
     }
   }
 
