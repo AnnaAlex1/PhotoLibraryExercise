@@ -1,6 +1,6 @@
 mat-grid-list {
   width: 88%;
-  margin: 0 auto;
+  margin: 3% auto;
 }
 
 mat-grid-tile {
@@ -48,6 +48,12 @@ mat-grid-tile {
   margin: 2% auto;
   display: block;
   border-radius: 16px;
+}
+
+.fav-icon {
+  position: relative;
+  right: -90%;
+  bottom: 5%;
 }
 
 

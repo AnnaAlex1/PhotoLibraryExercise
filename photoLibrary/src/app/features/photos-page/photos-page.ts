@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { mock_photos } from '../../shared/data/mock-photos';
 import { Photo } from '../../shared/models/photo.model';
 import { PhotoGrid } from "../../shared/ui/photo-grid/photo-grid";
+import { FavoritePhotosService } from '../../core/services/favorite-photos';
 
 @Component({
   selector: 'app-photos-page',
@@ -11,4 +12,10 @@ import { PhotoGrid } from "../../shared/ui/photo-grid/photo-grid";
 })
 export class PhotosPage {
   photos: Photo[] = mock_photos;
+
+  private favoritePhotosService = inject(FavoritePhotosService);
+
+  onPhotoClicked(photo: Photo): void {
+    this.favoritePhotosService.decideToAddOrRemove(photo);
+  }
 }
