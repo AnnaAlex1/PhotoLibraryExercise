@@ -1,1 +1,25 @@
-<p>photo-detail works!</p>
+@if (photo) {
+  <div class="content-wrapper">
+
+    <mat-card class="single-photo-card">
+      <div class="photo-container">
+        <img
+          [src]="photo.url"
+          alt="Photo"
+          class="photo-img"
+        />
+      </div>
+    </mat-card>
+
+    <div class="button-container">
+      <button
+        mat-button
+        routerLink="/favorites"
+        (click)="onRemoveFromFavoritesClick()"
+      >
+        Remove from favourites
+      </button>
+    </div>
+
+  </div>
+}

@@ -2,10 +2,12 @@ import { Component, inject } from '@angular/core';
 import { Photo } from '../../shared/models/photo.model';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FavoritePhotosService } from '../../core/services/favorite-photos';
+import { MatCard } from '@angular/material/card';
+import { MatButton } from '@angular/material/button';
 
 @Component({
   selector: 'app-photo-detail',
-  imports: [],
+  imports: [MatCard, MatButton],
   templateUrl: './photo-detail.html',
   styleUrl: './photo-detail.scss',
 })
