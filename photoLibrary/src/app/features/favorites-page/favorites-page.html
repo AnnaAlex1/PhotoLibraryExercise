@@ -4,5 +4,5 @@
     </div>
     
 } @else {
-    <app-photo-grid [photoArray]="favorites" ></app-photo-grid>
+    <app-photo-grid [photoArray]="favorites" (photoClicked)="onPhotoClicked($event)"></app-photo-grid>
 }
