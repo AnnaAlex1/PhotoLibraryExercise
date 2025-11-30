@@ -88,9 +88,9 @@ describe('PhotosPage', () => {
     photoApiServiceSpy.getPhotosBatch.and.returnValue(of([]));
 
     // Fake scrolling
-    spyOnProperty(window, 'innerHeight', 'get').and.returnValue(800);
-    spyOnProperty(window, 'scrollY', 'get').and.returnValue(600);
-    spyOnProperty(document.body, 'offsetHeight', 'get').and.returnValue(1350);
+    spyOnProperty(window, 'scrollY', 'get').and.returnValue(1000);
+    spyOnProperty(document.documentElement, 'clientHeight', 'get').and.returnValue(500);
+    spyOnProperty(document.documentElement, 'scrollHeight', 'get').and.returnValue(100);
 
     component.onWindowScroll();
 
@@ -104,9 +104,9 @@ describe('PhotosPage', () => {
     (photoApiServiceSpy.getPhotosBatch as jasmine.Spy).calls.reset(); // clear ngOnInit call
 
     // Fake scrolling, but not close to bottom
-    spyOnProperty(window, 'innerHeight', 'get').and.returnValue(500);
-    spyOnProperty(window, 'scrollY', 'get').and.returnValue(100);
-    spyOnProperty(document.body, 'offsetHeight', 'get').and.returnValue(2000);
+    spyOnProperty(window, 'scrollY', 'get').and.returnValue(1000);
+    spyOnProperty(document.documentElement, 'clientHeight', 'get').and.returnValue(500);
+    spyOnProperty(document.documentElement, 'scrollHeight', 'get').and.returnValue(10000);
 
     component.onWindowScroll();
 
@@ -163,5 +163,6 @@ describe('PhotosPage', () => {
     expect(component.photos).toEqual([]); // still unchanged
   });
 
+  
 
 });
