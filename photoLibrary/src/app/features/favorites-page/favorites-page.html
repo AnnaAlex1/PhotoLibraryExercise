@@ -1,1 +1,5 @@
-<p>favorites-page works!</p>
+@if ( favorites.length == 0) {
+    <p>No pictures in favorites!</p>
+} @else {
+    <app-photo-grid [photoArray]="favorites" ></app-photo-grid>
+}
