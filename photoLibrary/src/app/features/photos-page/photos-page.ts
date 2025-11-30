@@ -3,10 +3,11 @@ import { Photo } from '../../shared/models/photo.model';
 import { PhotoGrid } from "../../shared/ui/photo-grid/photo-grid";
 import { FavoritePhotosService } from '../../core/services/favorite-photos';
 import { PhotosApiService } from '../../core/services/photos-api';
+import { MatProgressSpinner } from '@angular/material/progress-spinner';
 
 @Component({
   selector: 'app-photos-page',
-  imports: [PhotoGrid],
+  imports: [PhotoGrid, MatProgressSpinner],
   templateUrl: './photos-page.html',
   styleUrl: './photos-page.scss',
 })

@@ -1,1 +1,12 @@
 <app-photo-grid [photoArray]="photos" (photoClicked)="onPhotoClicked($event)"></app-photo-grid>
+  
+<!-- Loader at bottom -->
+@if (isLoading) {
+    <div class="progress-spinner">
+        <mat-progress-spinner
+            mode="indeterminate"
+            diameter="40">
+        </mat-progress-spinner>
+
+    </div>
+}

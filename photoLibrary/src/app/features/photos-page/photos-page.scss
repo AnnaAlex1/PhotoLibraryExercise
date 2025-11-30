@@ -1,0 +1,9 @@
+.progress-spinner {
+  position: fixed;        // stick to viewport
+  inset: 0;               // full-screen overlay
+  display: flex;
+  justify-content: center;
+  align-items:last baseline;
+  background: rgba(0, 0, 0, 0.10); // optional dim
+  z-index: 1000;          // above grid
+}
