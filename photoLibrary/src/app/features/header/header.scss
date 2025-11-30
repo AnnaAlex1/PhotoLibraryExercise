@@ -7,6 +7,12 @@ mat-toolbar {
   align-items: center;
 
   gap: 2rem;
+
+
+  // header to remain visible
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
 
 button {
