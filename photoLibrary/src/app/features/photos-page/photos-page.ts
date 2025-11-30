@@ -62,11 +62,14 @@ export class PhotosPage {
   onWindowScroll(): void {
 
     if (this.isLoading) return;
-    
-    const scrollPosition = window.innerHeight + window.scrollY; // get the bottom of window
-    const threshold = document.body.offsetHeight - 50; // when to initiate scrolling
 
-    if (scrollPosition >= threshold){
+    const scrollTop = window.scrollY || document.documentElement.scrollTop;
+    const clientHeight = document.documentElement.clientHeight; 
+    const scrollHeight = document.documentElement.scrollHeight;    
+    
+    const threshold = 3000;
+
+    if (scrollTop + clientHeight >= scrollHeight - threshold){
       this.loadPhotoBatch();
     }
 
